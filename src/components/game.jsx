@@ -1,29 +1,53 @@
-import React, { useState, useEffect } from 'react'
-import { useParams 
-  } from "react-router-dom";
-import fetchGeneratedSudoku from '../fetchingFunctions/fetchGeneratedSudoku';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import fetchGeneratedSudoku from "../functions/fetchGeneratedSudoku";
+import fetchSudokuSolution from "../functions/fetchSudokuSolution";
+import generateStateArray from "../functions/generateStateArray";
+import SubmitBtn from "./submitBtn";
+import checkSolution from "../functions/checkSolution";
+import solveSudoku from "../functions/solveSudoku";
 
 function Game() {
-    const [generatedSudoku, setGeneratedSudoku] = useState(0);
-    const myAbortController = new AbortController();
-    const { level } = useParams();
+  const [generatedSudoku, setGeneratedSudoku] = useState(0);
+  const [solution, setSolution] = useState(0);
+  const [solved, setSolved] = useState("not submitted");
 
-    useEffect(() => {
-        if(level){
-            fetchGeneratedSudoku(level, myAbortController, setGeneratedSudoku)
-        }   
-        return () => {
-          myAbortController.abort();
-        };
-      }, []);
-    
+  const myAbortController = new AbortController();
+  const { level } = useParams();
 
+  useEffect(() => {
+    if (level) {
+      fetchGeneratedSudoku(
+        level,
+        myAbortController,
+        generateStateArray,
+        setGeneratedSudoku,
+        fetchSudokuSolution,
+        setSolution
+      );
+    }
+    return () => {
+      myAbortController.abort();
+    };
+  }, []);
 
-    return (
-        <div>
-            hi
-        </div>
-    )
+  return (
+    <div>
+      <button
+        onClick={() => checkSolution(solution, generatedSudoku, setSolved)}
+      >
+        submit solution
+      </button>
+      {solved === "fail" ? (
+        <SubmitBtn setSolved={setSolved} content="Try again" />
+      ) : solved === "solved successfully" ? (
+        <SubmitBtn setSolved={setSolved} content="Congratulations" />
+      ) : null}
+      <button onClick={() => solveSudoku(setGeneratedSudoku, solution)}>
+        Show the Solution
+      </button>
+    </div>
+  );
 }
 
-export default Game
+export default Game;
