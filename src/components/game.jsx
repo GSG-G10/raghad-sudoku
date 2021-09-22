@@ -6,6 +6,7 @@ import generateStateArray from "../functions/generateStateArray";
 import SubmitBtn from "./submitBtn";
 import checkSolution from "../functions/checkSolution";
 import solveSudoku from "../functions/solveSudoku";
+import Row from "./row";
 
 function Game() {
   const [generatedSudoku, setGeneratedSudoku] = useState(0);
@@ -33,19 +34,24 @@ function Game() {
 
   return (
     <div>
-      <button
-        onClick={() => checkSolution(solution, generatedSudoku, setSolved)}
-      >
-        submit solution
-      </button>
-      {solved === "fail" ? (
-        <SubmitBtn setSolved={setSolved} content="Try again" />
-      ) : solved === "solved successfully" ? (
-        <SubmitBtn setSolved={setSolved} content="Congratulations" />
-      ) : null}
-      <button onClick={() => solveSudoku(setGeneratedSudoku, solution)}>
-        Show the Solution
-      </button>
+      <div>
+        <Row />
+      </div>
+      <div>
+        <button
+          onClick={() => checkSolution(solution, generatedSudoku, setSolved)}
+        >
+          submit solution
+        </button>
+        {solved === "fail" ? (
+          <SubmitBtn setSolved={setSolved} content="Try again" />
+        ) : solved === "solved successfully" ? (
+          <SubmitBtn setSolved={setSolved} content="Congratulations" />
+        ) : null}
+        <button onClick={() => solveSudoku(setGeneratedSudoku, solution)}>
+          Show the Solution
+        </button>
+      </div>
     </div>
   );
 }
