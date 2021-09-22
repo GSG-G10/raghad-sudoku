@@ -14,14 +14,12 @@ function Entry(props) {
   };
 
   return (
-    <div>
       <input
         className="entry"
         value={entry ? entry : ""}
         type="text"
         onChange={handleChange}
       />
-    </div>
   );
 }
 

@@ -33,11 +33,11 @@ function Game() {
   }, []);
 
   return (
-    <div>
-      <div>
+    <div className='game-page'>
+      <div className='game-container'>
         <Row generatedSudoku={generatedSudoku} setGeneratedSudoku={setGeneratedSudoku} />
       </div>
-      <div>
+      <div className='btn-container'>
         <button
           onClick={() => checkSolution(level, 0,solution, generatedSudoku, setSolved)}
         >
