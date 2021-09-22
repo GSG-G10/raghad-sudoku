@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  useParams 
 } from "react-router-dom";
 import Home from "./components/home";
 import Nav from "./components/nav";

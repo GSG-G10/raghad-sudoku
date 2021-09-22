@@ -1,4 +1,4 @@
-function fetchGeneratedSudoku(data, callback) {
+function fetchSudokuSolution(data,callback1, callback2) {
   const encodeBoard = (board) =>
     board.reduce(
       (result, row, i) =>
@@ -19,7 +19,7 @@ function fetchGeneratedSudoku(data, callback) {
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
   })
     .then((response) => response.json())
-    .then((response) => callback(response.solution));
+    .then((response) => callback1((callback2({board: response.solution}))));
 }
 
-export default fetchGeneratedSudoku;
+export default fetchSudokuSolution;
