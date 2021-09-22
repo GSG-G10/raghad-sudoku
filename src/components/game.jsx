@@ -39,7 +39,7 @@ function Game() {
       </div>
       <div>
         <button
-          onClick={() => checkSolution(solution, generatedSudoku, setSolved)}
+          onClick={() => checkSolution(level, 0,solution, generatedSudoku, setSolved)}
         >
           submit solution
         </button>
