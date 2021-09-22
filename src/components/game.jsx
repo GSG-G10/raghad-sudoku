@@ -35,7 +35,7 @@ function Game() {
   return (
     <div>
       <div>
-        <Row />
+        <Row generatedSudoku={generatedSudoku} setGeneratedSudoku={setGeneratedSudoku} />
       </div>
       <div>
         <button
