@@ -1,4 +1,4 @@
-function fetchGeneratedSudoku(level, myAbortController, callback) {
+function fetchGeneratedSudoku(level, myAbortController, callback1, callback2, callback3) {
   fetch(`https://sugoku.herokuapp.com/board?difficulty=${level}`, {
     signal: myAbortController.signal,
   })
@@ -12,7 +12,8 @@ function fetchGeneratedSudoku(level, myAbortController, callback) {
           cols.push([col, colIndex]);
         });
       });
-      callback(sudokuArr);
+      callback1(sudokuArr);
+      callback2((sudokuArr, callback3))
     });
 }
 
