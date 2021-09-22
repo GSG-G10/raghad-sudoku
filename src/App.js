@@ -7,6 +7,7 @@ import {
 import Home from "./components/home";
 import Nav from "./components/nav";
 import Game from "./components/game";
+import Statistics from "./components/statistics";
 import "./App.css";
 
 function App() {
@@ -20,7 +21,9 @@ function App() {
             <Home />
           </Route>
           <Route exact path="/game/:level"  children={<Game />} /> 
-          <Route exact path="/statistics"></Route>
+          <Route exact path="/statistics">
+            <Statistics />
+          </Route>
         </Switch>
       </Router>
     </div>
