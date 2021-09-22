@@ -12,6 +12,8 @@ function Game() {
   const [generatedSudoku, setGeneratedSudoku] = useState(0);
   const [solution, setSolution] = useState(0);
   const [solved, setSolved] = useState("not submitted");
+  const [timerSec, setTimerSec] = useState(0);
+  const [timer, setTimer] = useState(true);
 
   const myAbortController = new AbortController();
   const { level } = useParams();
@@ -30,16 +32,37 @@ function Game() {
     return () => {
       myAbortController.abort();
     };
+  }, [level]);
+
+  useEffect(() => {
+    const setTimeSec = () =>
+      setTimerSec((prev) => {
+        let newState = prev + 1;
+        return setTimerSec(newState);
+      });
+
+    if (timer) {
+      setInterval(setTimeSec, 1000);
+    }
+    return () => {
+      clearInterval(setTimeSec);
+    };
   }, []);
 
   return (
-    <div className='game-page'>
-      <div className='game-container'>
-        <Row generatedSudoku={generatedSudoku} setGeneratedSudoku={setGeneratedSudoku} />
+    <div className="game-page">
+      <div className="game-container">
+        <Row
+          generatedSudoku={generatedSudoku}
+          setGeneratedSudoku={setGeneratedSudoku}
+        />
       </div>
-      <div className='btn-container'>
+      <div className="btn-container">
+        <button>{`${timerSec} Seconds`}</button>
         <button
-          onClick={() => checkSolution(level, 0,solution, generatedSudoku, setSolved)}
+          onClick={() => {
+            checkSolution(level, 0, solution, generatedSudoku, setSolved);
+          }}
         >
           submit solution
         </button>
