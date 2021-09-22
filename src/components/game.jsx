@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import fetchGeneratedSudoku from "../functions/fetchGeneratedSudoku";
 import fetchSudokuSolution from "../functions/fetchSudokuSolution";
 import generateStateArray from "../functions/generateStateArray";
+import SubmitBtn from "./submitBtn";
 
 function Game() {
   const [generatedSudoku, setGeneratedSudoku] = useState(0);
@@ -38,7 +39,12 @@ function Game() {
 
   return (
     <div>
-
+      <button onClick={checkSolution}>submit solution</button>
+      {solved === "fail" ? (
+        <SubmitBtn setSolved={setSolved} content="Try again" />
+      ) : solved === "solved successfully" ? (
+        <SubmitBtn setSolved={setSolved} content="Congratulations" />
+      ) : null}
     </div>
   );
 }
