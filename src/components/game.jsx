@@ -41,13 +41,13 @@ function Game() {
         return setTimerSec(newState);
       });
 
-    if (timer) {
+    if (generatedSudoku) {
       setInterval(setTimeSec, 1000);
     }
     return () => {
       clearInterval(setTimeSec);
     };
-  }, []);
+  }, [generatedSudoku]);
 
   return (
     <div className="game-page">

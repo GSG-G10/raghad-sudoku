@@ -14,11 +14,11 @@ body {
 .home-page {
   height: 90vh;
   display: flex;
-  /* background-image: url('https://thumbs.dreamstime.com/b/sudoku-puzzle-grid-as-background-closeup-view-215541661.jpg');
+  background-image: url('https://thumbs.dreamstime.com/b/sudoku-puzzle-grid-as-background-closeup-view-215541741.jpg');
   background-repeat: no-repeat;
-  object-fit:contain;
-
-  opacity: 0.75; */
+  background-position: center;
+  background-size: cover;
+  opacity: .8;
 }
 
 code {
