@@ -17,7 +17,7 @@ function Statistics() {
                 return <div className="card">
                 <p>{index +1}</p>
                 <p>{elem.level}</p>
-                <p>{elem.time}</p>
+                <p>{elem.time} seconds</p>
                 </div>
               })}
             </div>

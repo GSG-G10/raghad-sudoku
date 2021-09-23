@@ -61,7 +61,7 @@ function Game() {
         <button>{`${timerSec} Seconds`}</button>
         <button
           onClick={() => {
-            checkSolution(level, 0, solution, generatedSudoku, setSolved);
+            checkSolution(level, timerSec, solution, generatedSudoku, setSolved);
           }}
         >
           submit solution
