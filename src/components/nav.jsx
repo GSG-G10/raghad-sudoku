@@ -8,22 +8,22 @@ function Nav() {
       <nav>
         <ul>
           <li>
-            <Link style={{color:"#264653", textDecoration:'none', fontSize:'1.2rem', fontWeight:'bold'}} to="/">Home</Link>
+            <Link className='nav' to="/">Home</Link>
           </li>
           <li>
-            <Link style={{color:"#264653", textDecoration:'none', fontSize:'1.2rem', fontWeight:'bold'}} to="/game/easy">Easy</Link>
+            <Link className='nav' to="/game/easy">Easy</Link>
           </li>
           <li>
-            <Link style={{color:"#264653", textDecoration:'none', fontSize:'1.2rem', fontWeight:'bold'}} to="/game/medium">Medium</Link>
+            <Link className='nav' to="/game/medium">Medium</Link>
           </li>
           <li>
-            <Link style={{color:"#264653", textDecoration:'none', fontSize:'1.2rem', fontWeight:'bold'}} to="/game/hard">Hard</Link>
+            <Link className='nav' to="/game/hard">Hard</Link>
           </li>
           <li>
-            <Link style={{color:"#264653", textDecoration:'none', fontSize:'1.2rem', fontWeight:'bold'}} to="/game/random">Random</Link>
+            <Link className='nav' to="/game/random">Random</Link>
           </li>
           <li>
-            <Link style={{color:"#264653", textDecoration:'none', fontSize:'1.2rem', fontWeight:'bold'}} to="/statistics">Statistics</Link>
+            <Link className='nav' to="/statistics">Statistics</Link>
           </li>
         </ul>
       </nav>
